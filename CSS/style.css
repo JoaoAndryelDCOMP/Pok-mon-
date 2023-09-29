@@ -14,8 +14,7 @@ body{
     position: relative;
     margin: 0 auto;
 
-    width: 80%;
-    max-width: 700px;
+    width: 557px;
     height: 200px;
 
     overflow: hidden;
@@ -53,11 +52,11 @@ body{
     bottom: 12px;
     right: 56px;
 
-    width: 25px;
-    transform: rotate(0deg);
+    width: 20px;
+    /* transform: rotate(0deg); */
 
     /* animation: pokeballAnimation 1s linear infinite; */
-    animation: girar 800ms linear infinite;
+    animation: girar 1250ms linear infinite;
 
     
 }
@@ -65,6 +64,29 @@ body{
 .jump{
     animation: jump 500ms ease-out;
 }
+
+.gameOver{
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%,0%);
+    font-family: 'Pokemon Hollow' , sans-serif;
+    font-size: 20px;
+}
+
+.reiniciar{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: none;
+    border: none;
+}
+
+.reiniciar img{
+    width: 30px;
+}
+
 
 @keyframes pokeballAnimation {
     from {
