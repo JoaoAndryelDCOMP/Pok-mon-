@@ -5,6 +5,10 @@
 }
 
 body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100vw;
     height: 100vh;
     background-color: #d2d2d2;
@@ -12,7 +16,7 @@ body{
 
 .gameScreen{
     position: relative;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 
     width: 557px;
     height: 200px;
@@ -40,25 +44,23 @@ body{
 
 .pokeball{
     position: absolute;
-    bottom: 0;
+    bottom: 7px;
+    /* right: 49px; */
+    width: 28px;
 
-    width: 50px;
-
-    /* animation: pokeballAnimation 1s linear infinite; */
+    animation: girar 1.5s linear infinite;
 }
 
 .ultraball{
     position: absolute;
     bottom: 12px;
-    right: 56px;
+    /* right: 56px; */
 
     width: 20px;
-    /* transform: rotate(0deg); */
 
     /* animation: pokeballAnimation 1s linear infinite; */
-    animation: girar 1250ms linear infinite;
-
-    
+    animation: girar 1s linear infinite;
+    border-radius: 50%;
 }
 
 .jump{
@@ -71,7 +73,8 @@ body{
     top: 15%;
     transform: translate(-50%,0%);
     font-family: 'Pokemon Hollow' , sans-serif;
-    font-size: 20px;
+    font-size: 2em;
+    color: #FFF;
 }
 
 .reiniciar{
@@ -85,17 +88,6 @@ body{
 
 .reiniciar img{
     width: 30px;
-}
-
-
-@keyframes pokeballAnimation {
-    from {
-        left: -40px;
-    }
-
-    to{
-        left: 100%;
-    }
 }
 
 @keyframes jump {
@@ -112,7 +104,11 @@ body{
     }
 
     60%{
-        bottom: 60px
+        bottom: 60px;
+    }
+
+    70%{
+        bottom: 60px;
     }
 
     100%{
@@ -126,10 +122,10 @@ body{
         transform: rotate(360deg);
     }
     from {
-        left: -40px;
+        left: -45px;
     }
 
     to{
-        left: 100%;
+        left: 98%;
     }
 }
