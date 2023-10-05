@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon!</title>
+
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,12 +17,14 @@
         <!-- <div class="square">.</div> -->
         <img src="Images/background.jpg" class="background">
         <img src="Images/pikachuCorrendo.gif" class="pikachu">
-        <!-- <img src="Images/pokeball.webp" class="pokeball"> -->
-        <img src="Images/masterball.png" class="ultraball">
+        <img src="Images/pokeball.webp" class="pokeball">
+        <img src="Images/ultraball2.png" class="ultraball" style="animation: none; visibility: hidden;">
+        <img src="Images/masterball.png" class="ultraball" style="animation: none; visibility: hidden;">
 
-        <div>
-            <p class="gameOver">Score: 0</p>
+        <div class="gameOver">
+            <p>Score: 0</p>
         </div>
+
         <button class="reiniciar" onclick="reiniciarJogo()" style="visibility: hidden;">
             <img src="Images/setaReiniciar.png" alt="">
         </button>

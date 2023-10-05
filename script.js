@@ -1,6 +1,9 @@
 //SELECTOR PARA COLETAR AS CLASSES
 const pikachu = document.querySelector('.pikachu');
+const pokeball = document.querySelector('.pokeball');
 const ultraball = document.querySelector('.ultraball');
+const masterball = document.querySelector('.masterball');
+const gameOver = document.querySelector('.gameOver')
 const jumpClass = document.querySelector('.jump')
 const botaoReiniciar = document.querySelector('.reiniciar')
 
@@ -17,12 +20,27 @@ const jump = () => {
     }, 500);
 }
 
-const loop = setInterval(() => {
-    const ultraballPosition = ultraball.offsetLeft;
-    // console.log(ultraballPosition)
-    const pikachuPosition = +window.getComputedStyle(pikachu).bottom.replace('px','');
 
-    if (ultraballPosition >= 478 && pikachuPosition < 20) {
+const loop = setInterval(() => {
+    const scoree = setInterval(() => {
+        score = score + 0.01;
+        gameOver.innerHTML = 'Score: ' + Math.trunc(score);
+        clearInterval(scoree);
+
+    }, 1000);
+
+    const pokeballPosition = pokeball.offsetLeft;
+    const ultraballPosition = ultraball.offsetLeft;
+    // const masterballPosition = masterball.offsetLeft;
+    const pikachuPosition = +window.getComputedStyle(pikachu).bottom.replace('px','');
+        // console.log(pokeballPosition)
+        const pikachuPositionLeft = pikachu.offsetLeft;
+    // console.log(pikachuPositionLeft)
+
+    if ((pokeballPosition >= 510 && pikachuPosition < 20) || (ultraballPosition >= 510 && pikachuPosition < 20)) {
+        pokeball.style.animation = 'none';
+        pokeball.style.left = `${pokeballPosition}px`;
+
         ultraball.style.animation = 'none';
         ultraball.style.left = `${ultraballPosition}px`;
 
@@ -35,15 +53,15 @@ const loop = setInterval(() => {
      
         botaoReiniciar.style.visibility = 'visible';
 
-        // jogando = false;
         clearInterval(loop);
-        // console.log(jogando)
-
-    } else if (ultraballPosition <=-40){
-        score += 1;
-        console.log(score)
-    }
-
+    } else if(score > 1000 && score < 170000){
+        pokeball.style.animation = 'none';
+        pokeball.style.visibility = 'hidden';
+        ultraball.style.animation = 'girar 1s linear infinite';
+        ultraball.style.visibility = 'visible';
+    } 
+    
+    
 
 }, 10)
 
@@ -52,11 +70,10 @@ const reiniciarJogo = () =>{
 }
 
 //CÓDIGO PARA DESATIVAR AS TECLAS ALT E F12
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Alt" || event.key === "F12") {
-      event.preventDefault(); // Impede o comportamento padrão da tecla "Alt"
-      // Você pode adicionar aqui qualquer código personalizado que desejar executar
-      // quando a tecla "Alt" for pressionada.
+document.addEventListener("keydown", function(press) {
+
+    if (press.key == "Alt" || press.key === "F12") {
+        press.preventDefault(); 
     }
   });
 
