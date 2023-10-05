@@ -31,18 +31,22 @@ const loop = setInterval(() => {
 
     const pokeballPosition = pokeball.offsetLeft;
     const ultraballPosition = ultraball.offsetLeft;
-    // const masterballPosition = masterball.offsetLeft;
+    const masterballPosition = masterball.offsetLeft;
     const pikachuPosition = +window.getComputedStyle(pikachu).bottom.replace('px','');
         // console.log(pokeballPosition)
         const pikachuPositionLeft = pikachu.offsetLeft;
     // console.log(pikachuPositionLeft)
 
-    if ((pokeballPosition >= 510 && pikachuPosition < 20) || (ultraballPosition >= 510 && pikachuPosition < 20)) {
+    if ((pokeballPosition >= 510 && pikachuPosition < 20) || (ultraballPosition >= 510 && pikachuPosition < 20) || 
+        (masterballPosition >= 510 && pikachuPosition < 20)) {
         pokeball.style.animation = 'none';
         pokeball.style.left = `${pokeballPosition}px`;
 
         ultraball.style.animation = 'none';
         ultraball.style.left = `${ultraballPosition}px`;
+
+        masterball.style.animation = 'none';
+        masterball.style.left = `${masterballPosition}px`;
 
         // pikachu.style.animation = 'none';
         pikachu.style.bottom = `${pikachuPosition}px`
@@ -53,12 +57,20 @@ const loop = setInterval(() => {
      
         botaoReiniciar.style.visibility = 'visible';
 
+        pikachu.style.animation= 'jump 0ms';
+
         clearInterval(loop);
-    } else if(score > 10 && score < 170000){
+    } else if(score > 10 && score < 20){
         pokeball.style.animation = 'none';
         pokeball.style.visibility = 'hidden';
         ultraball.style.animation = 'girar 1s linear infinite';
         ultraball.style.visibility = 'visible';
+
+    } else if (score > 30 && score < 170000) {
+        ultraball.style.animation = 'none';
+        ultraball.style.visibility = 'hidden';
+        masterball.style.animation = 'girar 0.6s linear infinite';
+        masterball.style.visibility = 'visible';
     } 
     
     
