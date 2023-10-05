@@ -54,7 +54,7 @@ const loop = setInterval(() => {
         botaoReiniciar.style.visibility = 'visible';
 
         clearInterval(loop);
-    } else if(score > 1000 && score < 170000){
+    } else if(score > 10 && score < 170000){
         pokeball.style.animation = 'none';
         pokeball.style.visibility = 'hidden';
         ultraball.style.animation = 'girar 1s linear infinite';
